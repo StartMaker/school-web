@@ -6,6 +6,15 @@ class OrganizationList extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
 
+        Map<String, String> createRouteParams (username, id) {
+            Map<String, String> routeParams = {
+                "id": id,
+                "username": username,
+                "defaultLogo": "http://i2.hdslb.com/bfs/face/d79637d472c90f45b2476871a3e63898240a47e3.jpg"
+            };
+            return routeParams;
+        }
+
         return Scaffold(
             backgroundColor: Color.fromRGBO(240, 247, 247, 1),
             appBar: AppBar(
@@ -15,7 +24,7 @@ class OrganizationList extends StatelessWidget {
                     color: Colors.black,
                 ),
                 title: Text(
-                    '机构号',
+                    '学生中心',
                     style: TextStyle(
                         color: Color.fromRGBO(0, 0, 0, 1)
                     ),
@@ -27,11 +36,24 @@ class OrganizationList extends StatelessWidget {
                 children: <Widget>[
                     NormalCard(
                         leading: Icon(Icons.book),
-                        title: '图书馆'
+                        title: '图书馆',
+                        onTap: (){
+                            Navigator.pushNamed(context, '/chat', arguments: createRouteParams("图书馆", "library"));
+                        },
                     ),
                     NormalCard(
-                        title: '电影院',
-                        leading: Icon(Icons.movie)
+                        title: '活动中心',
+                        leading: Icon(Icons.accessibility_new),
+                        onTap: (){
+                            Navigator.pushNamed(context, '/chat', arguments: createRouteParams("活动中心", "activities"));
+                        }
+                    ),
+                    NormalCard(
+                        title: "教务处",
+                        leading: Icon(Icons.school),
+                        onTap: (){
+                            Navigator.pushNamed(context, '/chat', arguments: createRouteParams("教务处", "classes"));
+                        },
                     )
                 ],
             )

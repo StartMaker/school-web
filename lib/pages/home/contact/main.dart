@@ -88,7 +88,7 @@ class Contact extends StatelessWidget{
                         leading: Icon(Icons.supervisor_account)
                     ),
                     NormalCard(
-                        title: '机构号',
+                        title: '学生中心',
                         leading: Icon(Icons.school),
                         onTap: (){
                             Navigator.push(context, MaterialPageRoute(builder: (BuildContext context){
